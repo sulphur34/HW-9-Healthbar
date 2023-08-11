@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
             _animator.SetTrigger(_healIndex);
 
             if (_health <= (_maxHealth - _healthChangeStep))
-                _health += 10;
+                _health += _healthChangeStep;
             else if (_health < _maxHealth)
                 _health = _maxHealth;
 
