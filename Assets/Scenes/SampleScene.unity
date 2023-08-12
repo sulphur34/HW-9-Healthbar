@@ -239,7 +239,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921e236b9f19e14468e5907be15a1ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthbar: {fileID: 898698306}
+  _maxHealth: 100
+  _healthChangeStep: 20
+--- !u!114 &115090863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115090858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91c08f9247e6ff4783898fa0a36beba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 115090862}
 --- !u!1 &261323174
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +770,9 @@ MonoBehaviour:
     m_Mode: 1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  _healthColor: {fileID: 1421067712}
+  _healthLine: {fileID: 1421067712}
+  _player: {fileID: 115090862}
+  _changeStep: 60
 --- !u!1001 &959944174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1492,7 +1508,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 115090862}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: CastHeal
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1624,9 +1640,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 115090862}
+      - m_Target: {fileID: 115090858}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Damage
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
