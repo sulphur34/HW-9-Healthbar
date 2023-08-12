@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {  
-    [SerializeField] private float maxHealth;
+    [SerializeField] private float _maxHealth;
     
     private float _minHealth;
     public event UnityAction HealthChanged;
@@ -13,17 +13,17 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        MaxHealth = maxHealth;
+        MaxHealth = _maxHealth;
         _minHealth = 0;
         Health = MaxHealth;
     }
 
     public void DecreaseHealth(float increaseValue)
     {
-        IncreaseHealthByValue(-increaseValue);
+        IncreaseHealth(-increaseValue);
     }
 
-    public void IncreaseHealthByValue(float increaseValue)
+    public void IncreaseHealth(float increaseValue)
     {
         if (Health > 0)
         {

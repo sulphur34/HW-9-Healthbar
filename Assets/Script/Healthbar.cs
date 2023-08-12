@@ -14,7 +14,7 @@ public class Healthbar : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.HealthChanged += SetCurrentValue;
+        _player.HealthChanged += OnHealthChanged;
     }
 
     private void Start()
@@ -24,7 +24,7 @@ public class Healthbar : MonoBehaviour
 
     private void OnDisable()
     {
-        _player.HealthChanged -= SetCurrentValue;
+        _player.HealthChanged -= OnHealthChanged;
     }
 
     public void SetStartValues()
@@ -34,7 +34,7 @@ public class Healthbar : MonoBehaviour
         _healthLine.color = _gradient.Evaluate(1f);
     }
 
-    public void SetCurrentValue()
+    public void OnHealthChanged()
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
