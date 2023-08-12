@@ -13,6 +13,7 @@ public class Animations : MonoBehaviour
     private int _healIndex;
     private int _isDeadIndex;
     private float _currentHealth;
+
     private void Awake()
     {
         _hurtIndex = Animator.StringToHash(Hurt);
@@ -34,7 +35,7 @@ public class Animations : MonoBehaviour
     private void OnDisable()
     {
         _player.HealthChanged -= OnHealthChange;
-    }    
+    }  
 
     private void OnHealthChange()
     {
@@ -48,7 +49,4 @@ public class Animations : MonoBehaviour
 
         _currentHealth = _player.Health;
     }
-
-
-
 }

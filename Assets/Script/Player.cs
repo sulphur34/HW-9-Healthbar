@@ -4,10 +4,9 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {  
     [SerializeField] private float maxHealth;
-    [SerializeField] private float _healthChangeStep;
-
-    public event UnityAction HealthChanged;
+    
     private float _minHealth;
+    public event UnityAction HealthChanged;
 
     public float Health { get; private set;}
     public float MaxHealth { get; private set; }
@@ -19,13 +18,18 @@ public class Player : MonoBehaviour
         Health = MaxHealth;
     }
 
-    public void ChangeHealth(float coefficient)
+    public void DecreaseHealth(float increaseValue)
+    {
+        IncreaseHealthByValue(-increaseValue);
+    }
+
+    public void IncreaseHealthByValue(float increaseValue)
     {
         if (Health > 0)
         {
-            Health += _healthChangeStep * coefficient;
+            Health += increaseValue;
             Health = Mathf.Clamp(Health, _minHealth, MaxHealth);
             HealthChanged?.Invoke();
         }
-    }
+    }    
 }
